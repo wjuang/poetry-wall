@@ -16,7 +16,7 @@ const methodOverride = require('method-override')
 app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
-  res.send('test')
+  res.render('index.ejs')
 })
 
 app.listen(port, () => {
