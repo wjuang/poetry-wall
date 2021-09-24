@@ -15,9 +15,9 @@ app.use(express.urlencoded({extended: false}))
 const methodOverride = require('method-override')
 app.use(methodOverride('_method'))
 
-app.get('/', (req, res) => {
-  res.render('index.ejs')
-})
+//controllers call
+const poetryController = require('./controllers/poetryController.js')
+app.use('/poems', poetryController)
 
 app.listen(port, () => {
   console.log('app is running on port ' + port)
