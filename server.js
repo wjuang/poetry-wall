@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express()
 
+//schema import
+const Poem = require('../models/poems')
+
 //dotenv setup
 require('dotenv').config()
 const port = process.env.port
@@ -14,6 +17,28 @@ app.use(express.urlencoded({extended: false}))
 //set up method override
 const methodOverride = require('method-override')
 app.use(methodOverride('_method'))
+
+//dtabase connection
+const mongoURI = process.env.MONGODB_URI
+
+const db = mongoose.connection
+
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}, () => {
+    console.log('database connected')
+})
+//database optionals
+db.on('error', (err) => {
+  console.log('ERROR:', err)
+})
+db.on('connected', () => {
+  console.log('mongo connected')
+})
+db.on('disconnected', () => {
+  console.log('mongo disconnected')
+})
 
 //controllers call
 const poetryController = require('./controllers/poetryController.js')
