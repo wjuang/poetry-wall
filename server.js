@@ -1,8 +1,9 @@
 const express = require('express')
 const app = express()
+const mongoose = require('mongoose')
 
 //schema import
-const Poem = require('../models/poems')
+const Poem = require('./models/poems.js')
 
 //dotenv setup
 require('dotenv').config()
