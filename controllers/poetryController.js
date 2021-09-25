@@ -53,4 +53,17 @@ router.get('/seed', (req, res) => {
   res.redirect('/poems')
 })
 
+router.get('/:id', (req, res) => {
+  Poem.findById(req.params.id, (err, poem) => {
+    if (err){
+      console.log(err)
+      res.send(err)
+    } else {
+      res.render('show.ejs', {
+        poem: poem
+      })
+    }
+  })
+})
+
 module.exports = router

@@ -4,8 +4,10 @@
 
 <%for (let i = 0; i < poems.length; i++){%>
   <h3><%=poems[i].title%></h3>
+  <a href="/poems/<%=poems[i].id%>"> >> </a>
   <p>By <%=poems[i].author%></p>
   <p><%=poems[i].content%></p>
+  <p><%=poems[i].time%></p>
 <%}%>
 
 <%- include('./partials/footer.ejs') -%>
