@@ -1,5 +1,11 @@
-<%- include('./partials/header.ejs') %>
+<%- include('./partials/header.ejs') -%>
 
 <h1>Index page</h1>
 
-<%- include('./partials/footer.ejs') %>
+<%for (let i = 0; i < poems.length; i++){%>
+  <h3><%=poems[i].title%></h3>
+  <p>By <%=poems[i].author%></p>
+  <p><%=poems[i].content%></p>
+<%}%>
+
+<%- include('./partials/footer.ejs') -%>
