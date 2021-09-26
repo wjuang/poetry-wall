@@ -1,0 +1,19 @@
+<%- include('./partials/header.ejs') -%>
+
+<h1>New Poem</h1>
+<form action="/poems" method="post">
+  <label for="title">Title:</label>
+  <br/>
+  <input type="text" name="title">
+  <br/>
+  <label for="author">Author:</label>
+  <br/>
+  <input type="text" name="author">
+  <br/>
+  <label for="content"></label>
+  <textarea name="content" rows="8" cols="80"></textarea>
+  <br/>
+  <input type="submit" name="" value="Submit">
+</form>
+
+<%- include('./partials/footer.ejs') -%>

@@ -53,6 +53,24 @@ router.get('/seed', (req, res) => {
   res.redirect('/poems')
 })
 
+router.get('/new', (req, res) => {
+  res.render('new.ejs')
+})
+
+router.post('/', (req, res) => {
+  if (req.body.author.length < 1){
+    delete req.body.author
+  }
+  Poem.create(req.body, (err, newPoem) => {
+    if (err) {
+      console.log(err)
+      res.send(err)
+    } else {
+      res.redirect('/poems')
+    }
+  })
+})
+
 router.get('/:id', (req, res) => {
   Poem.findById(req.params.id, (err, poem) => {
     if (err){
