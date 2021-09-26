@@ -71,6 +71,18 @@ router.post('/', (req, res) => {
   })
 })
 
+
+router.delete('/:id', (req, res) => {
+  Poem.findByIdAndDelete(req.params.id, (err, deletedPoem) => {
+    if (err){
+      console.log(err)
+      res.send(err)
+    } else {
+      res.redirect('/poems')
+    }
+  })
+})
+
 router.get('/:id', (req, res) => {
   Poem.findById(req.params.id, (err, poem) => {
     if (err){
@@ -83,5 +95,6 @@ router.get('/:id', (req, res) => {
     }
   })
 })
+
 
 module.exports = router
