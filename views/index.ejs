@@ -3,11 +3,27 @@
 <h1>Index page</h1>
 
 <%for (let i = 0; i < poems.length; i++){%>
-  <h3><%=poems[i].title%></h3>
-  <a href="/poems/<%=poems[i].id%>"> >> </a>
-  <p>By <%=poems[i].author%></p>
-  <p><%=poems[i].content%></p>
+  <div class="preview">
+  <h3 class="titles"><%=poems[i].title%> <a href="/poems/<%=poems[i].id%>"> >> </a></h3>
+  <p class="authors">By <%=poems[i].author%></p>
+  <p class="contents"><%=poems[i].content%></p>
   <p><%=poems[i].time%></p>
+  </div>
 <%}%>
 
+<script>
+  const contents = document.querySelectorAll('.contents')
+  for (content of contents) {
+    let longer = false
+    if (content.innerHTML.length > 300) {
+      longer = true
+    } else {
+      longer = false
+    }
+    content.innerHTML = content.innerHTML.substring(0, 300);
+    if (longer === true){
+      content.innerHTML = content.innerHTML + "..."
+    }
+  }
+</script>
 <%- include('./partials/footer.ejs') -%>
