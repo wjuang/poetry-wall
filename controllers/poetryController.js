@@ -71,6 +71,32 @@ router.post('/', (req, res) => {
   })
 })
 
+router.get('/:id/edit', (req, res) => {
+  Poem.findById(req.params.id, (err, foundPoem) => {
+    if (err) {
+      console.log(err)
+      res.send(err)
+    } else {
+      res.render('edit.ejs', {
+        poem: foundPoem
+      })
+    }
+  })
+})
+
+router.put('/:id', (req, res) => {
+  if (req.body.author.length < 1){
+    req.body.author = "Anonymous"
+  }
+  Poem.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, foundPoem) => {
+    if (err) {
+      console.log(err)
+      res.send(err)
+    } else {
+      res.redirect("/poems/" + req.params.id)
+    }
+  })
+})
 
 router.delete('/:id', (req, res) => {
   Poem.findByIdAndDelete(req.params.id, (err, deletedPoem) => {

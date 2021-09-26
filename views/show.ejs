@@ -5,6 +5,10 @@
 <p><%=poem.content%></p>
 <p><%=poem.time%></p>
 
+<form action="/poems/<%=poem.id%>/edit" method="get">
+  <input type="submit" value="Edit">
+</form>
+
 <form action="/poems/<%=poem.id%>?_method=DELETE" method="post">
   <input type="submit" value="Delete">
 </form>
