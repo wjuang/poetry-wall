@@ -16,36 +16,36 @@ router.get('/seed', (req, res) => {
     {
       title: "The Road Not Taken",
       author: "Robert Frost",
-      content: "Two roads diverged in a yellow wood,\
-                And sorry I could not travel both\
-                And be one traveler, long I stood\
-                And looked down one as far as I could\
-                To where it bent in the undergrowth;\
-                \
-                Then took the other, as just as fair,\
-                And having perhaps the better claim,\
-                Because it was grassy and wanted wear;\
-                Though as for that the passing there\
-                Had worn them really about the same,\
-                \
-                And both that morning equally lay\
-                In leaves no step had trodden black.\
-                Oh, I kept the first for another day!\
-                Yet knowing how way leads on to way,\
-                I doubted if I should ever come back.\
-                \
-                I shall be telling this with a sigh\
-                Somewhere ages and ages hence:\
-                Two roads diverged in a wood, and I—\
-                I took the one less traveled by,\
+      content: "Two roads diverged in a yellow wood,\r\n\
+                And sorry I could not travel both\r\n\
+                And be one traveler, long I stood\r\n\
+                And looked down one as far as I could\r\n\
+                To where it bent in the undergrowth\r\n\
+                \r\n\
+                Then took the other, as just as fair\r\n\
+                And having perhaps the better claim\r\n\
+                Because it was grassy and wanted wear\r\n\
+                Though as for that the passing there\r\n\
+                Had worn them really about the same\r\n\
+                \r\n\
+                And both that morning equally lay\r\n\
+                In leaves no step had trodden black\r\n\
+                Oh, I kept the first for another day\r\n\
+                Yet knowing how way leads on to way\r\n\
+                I doubted if I should ever come back\r\n\
+                \r\n\
+                I shall be telling this with a sigh\r\n\
+                Somewhere ages and ages hence:\r\n\
+                Two roads diverged in a wood, and I—\r\n\
+                I took the one less traveled by,\r\n\
                 And that has made all the difference."
     },
     {
       title: "Eightfold Fence",
-      content: "Eightfold rising clouds\
-                build an eightfold fence\
-                an eightfold Izumo fence\
-                wherein to keep my bride—\
+      content: "Eightfold rising clouds\r\n\
+                build an eightfold fence\r\n\
+                an eightfold Izumo fence\r\n\
+                wherein to keep my bride—\r\n\
                 oh! splendid eightfold fence."
     }
   ]
@@ -61,6 +61,8 @@ router.post('/', (req, res) => {
   if (req.body.author.length < 1){
     delete req.body.author
   }
+  const bodySplit = req.body.content.split("/\n/g")
+  req.body.content = bodySplit.join('<br/>')
   Poem.create(req.body, (err, newPoem) => {
     if (err) {
       console.log(err)
