@@ -4,7 +4,7 @@
 
 <div class="container">
   <div class="row">
-    <%for (let i = 0; i < poems.length; i++){%>
+    <%for (let i = poems.length-1; i >= 0; i--){%>
       <div class="col-sm-4">
         <h3 class="titles"><%=poems[i].title%> <a href="/poems/<%=poems[i].id%>"> >> </a></h3>
         <p class="authors">By <%=poems[i].author%></p>
