@@ -1,17 +1,27 @@
 <%- include('./partials/header.ejs') -%>
+<div class="container">
+  <div class="row justify-content-center" id="showPoem">
+    <div class="col-sm-4">
+      <h1 class="text-center"><%=poem.title%></h1>
+      <h5 class="text-center"><%=poem.author%></h5>
+      <p class="text-center"><%=poem.content%></p>
+      <p class="text-center font-weight-light"><%=poem.time%></p>
+    </div>
+  </div>
+  <div class="row justify-content-between">
+    <div class="col-1"
+      <form action="/poems/<%=poem.id%>/edit" method="get">
+        <input type="submit" value="Edit">
+      </form>
+    </div>
+    <div class="col-1">
+      <form action="/poems/<%=poem.id%>?_method=DELETE" method="post">
+        <input type="submit" value="Delete">
+      </form>
+    </div>
+  </div>
+</div>
 
-<h1><%=poem.title%></h1>
-<h5><%=poem.author%></h5>
-<p><%=poem.content%></p>
-<p><%=poem.time%></p>
-
-<form action="/poems/<%=poem.id%>/edit" method="get">
-  <input type="submit" value="Edit">
-</form>
-
-<form action="/poems/<%=poem.id%>?_method=DELETE" method="post">
-  <input type="submit" value="Delete">
-</form>
 
 
 <%- include('./partials/footer.ejs') -%>

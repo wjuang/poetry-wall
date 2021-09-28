@@ -2,14 +2,18 @@
 
 <h1>Index page</h1>
 
-<%for (let i = 0; i < poems.length; i++){%>
-  <div class="preview">
-  <h2 class="titles"><%=poems[i].title%> <a href="/poems/<%=poems[i].id%>"> >> </a></h2>
-  <p class="authors">By <%=poems[i].author%></p>
-  <p class="contents"><%=poems[i].content%></p>
-  <p><%=poems[i].time%></p>
+<div class="container">
+  <div class="row">
+    <%for (let i = 0; i < poems.length; i++){%>
+      <div class="col-sm-4">
+        <h3 class="titles"><%=poems[i].title%> <a href="/poems/<%=poems[i].id%>"> >> </a></h3>
+        <p class="authors">By <%=poems[i].author%></p>
+        <p class="contents"><%=poems[i].content%></p>
+        <p><%=poems[i].time%></p>
+      </div>
+    <%}%>
   </div>
-<%}%>
+</div>
 
 <script>
   const contents = document.querySelectorAll('.contents')
@@ -20,7 +24,7 @@
     } else {
       longer = false
     }
-    content.innerHTML = content.innerHTML.substring(0, 300);
+    content.innerHTML = content.innerHTML.substring(0, 200);
     if (longer === true){
       content.innerHTML = content.innerHTML + "..."
     }
