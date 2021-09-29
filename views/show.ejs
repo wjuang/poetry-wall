@@ -24,7 +24,7 @@
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-12">
+    <div class="col-8">
       <form action="/poems/<%=poem.id%>" method="post">
         <input type="text" name="author" placeholder="Your Name">
         <br/>
@@ -34,14 +34,17 @@
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-12">
       <%for (comment of comments) { %>
         <%if (comment.pageId == poem.id) {%>
-          <p><%=comment.author%></p>
+          <div class="col-sm-8">
+          <h5><%=comment.author%></h5>
           <p><%=comment.comment%></p>
+          <form action="/poems/<%=poem.id%>/<%=comment.id%>?_method=DELETE" method="post">
+            <input type="submit" name="delete" value="Delete">
+          </form>
+          </div>
         <%}%>
       <%}%>
-    </div>
   </div>
 </div>
 

@@ -76,6 +76,9 @@ router.post('/', (req, res) => {
 //comments route
 router.post('/:id', (req, res) => {
   req.body.pageId = req.params.id
+  if (req.body.author.length < 1) {
+    delete req.body.author
+  }
   Comment.create(req.body, (err, newComment) => {
     if (err) {
       console.log(err)
@@ -109,6 +112,18 @@ router.put('/:id', (req, res) => {
       res.send(err)
     } else {
       res.redirect("/poems/" + req.params.id)
+    }
+  })
+})
+
+//comments delete
+router.delete('/:id/:id2', (req, res) => {
+  Comment.findByIdAndDelete(req.params.id2, (err, deletedComment) => {
+    if (err) {
+      console.log(err)
+      res.send(err)
+    } else {
+      res.redirect('/poems/' + req.params.id)
     }
   })
 })
