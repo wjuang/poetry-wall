@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Poem = require('../models/poems.js')
-
+const Comment = require('../models/comments.js')
 
 router.get('/', (req, res) => {
   Poem.find({}, (err, poems) => {
@@ -73,6 +73,19 @@ router.post('/', (req, res) => {
   })
 })
 
+//comments route
+router.post('/:id', (req, res) => {
+  req.body.pageId = req.params.id
+  Comment.create(req.body, (err, newComment) => {
+    if (err) {
+      console.log(err)
+      res.send(err)
+    } else {
+      res.redirect('/poems/' + req.params.id)
+    }
+  })
+})
+
 router.get('/:id/edit', (req, res) => {
   Poem.findById(req.params.id, (err, foundPoem) => {
     if (err) {
@@ -117,8 +130,16 @@ router.get('/:id', (req, res) => {
       console.log(err)
       res.send(err)
     } else {
-      res.render('show.ejs', {
-        poem: poem
+      Comment.find({}, (err, comments) => {
+        if (err){
+          console.log(err)
+          res.send(err)
+        } else {
+          res.render('show.ejs', {
+            poem: poem,
+            comments: comments
+          })
+        }
       })
     }
   })
