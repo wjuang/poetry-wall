@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 
 //schema import
 const Poem = require('./models/poems.js')
+const Comment = require('./models/comments.js')
 
 //dotenv setup
 require('dotenv').config()
