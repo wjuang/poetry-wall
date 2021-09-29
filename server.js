@@ -7,7 +7,7 @@ const Poem = require('./models/poems.js')
 
 //dotenv setup
 require('dotenv').config()
-const port = process.env.port
+const port = process.env.PORT
 
 //set up public folder (css)
 app.use(express.static('public'))
@@ -45,6 +45,6 @@ db.on('disconnected', () => {
 const poetryController = require('./controllers/poetryController.js')
 app.use('/poems', poetryController)
 
-app.listen(port, () => {
+app.listen(PORT, () => {
   console.log('app is running on port ' + port)
 })
