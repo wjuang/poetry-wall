@@ -43,7 +43,7 @@
           <h5><%=comment.author%></h5>
           <p><%=comment.comment%></p>
           <form action="/poems/<%=poem.id%>/<%=comment.id%>?_method=DELETE" method="post">
-            <button type="button" class="btn btn-primary btn-sm" name="button">Delete</button>
+            <input type="submit" class="btn btn-primary btn-sm" value="Delete">
           </form>
           </div>
         <%}%>
