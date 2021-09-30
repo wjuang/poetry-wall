@@ -28,7 +28,6 @@ const db = mongoose.connection
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  db: {safe: false}
 }, () => {
     console.log('database connected')
 })
