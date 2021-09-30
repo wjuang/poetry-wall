@@ -2,16 +2,22 @@
 
 <h1>Edit Poem</h1>
 <form action="/poems/<%=poem.id%>?_method=PUT" method="post">
+  <div class="form-group">
   <label for="title">Title:</label>
   <br/>
-  <input type="text" name="title" value="<%=poem.title%>">
+  <input class="form-control" type="text" name="title" value="<%=poem.title%>">
+  </div>
   <br/>
-  <label for="author" value="<%=poem.author%>">Author:</label>
+  <div class="form-group">
+  <label for="author" >Author:</label>
   <br/>
-  <input type="text" name="author">
+  <input class="form-control" type="text" value="<%=poem.author%>" name="author">
+  </div>
   <br/>
-  <label for="content" value="<%=poem.content%>""></label>
-  <textarea id="textarea" name="content" rows="8" cols="80"></textarea>
+  <div class="form-group">
+  <label for="content" ></label>
+  <textarea class="form-control" id="textarea" name="content" rows="8" cols="80"><%=poem.content%></textarea>
+  </div>
   <br/>
   <input type="submit" name="" value="Submit">
 </form>

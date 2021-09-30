@@ -6,10 +6,13 @@
   <div class="row justify-content-around">
     <%for (let i = poems.length-1; i >= 0; i--){%>
       <div class="col-sm-4">
-        <h3 class="titles"><%=poems[i].title%> <a href="/poems/<%=poems[i].id%>"> >> </a></h3>
+        <h3 class="titles"><%=poems[i].title%></h3>
         <p class="authors">By <%=poems[i].author%></p>
         <p class="contents"><%=poems[i].content%></p>
-        <p><%=poems[i].time%></p>
+        <p><small class="text-muted"><%=poems[i].time%></small></p>
+        <form action="/poems/<%=poems[i].id%>" method="get">
+          <button type="submit" class="btn btn-primary w-100">View</button>
+        </form>
       </div>
     <%}%>
   </div>

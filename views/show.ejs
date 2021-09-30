@@ -2,10 +2,11 @@
 <div class="container" id="showPoem">
   <div class="row justify-content-center" >
     <div class="col-sm-4">
+      <br/>
       <h1 class="text-center"><%=poem.title%></h1>
       <h5 class="text-center"><%=poem.author%></h5>
       <p class="text-center" id="content"><%=poem.content%></p>
-      <p class="text-center font-weight-light"><%=poem.time%></p>
+      <p class="text-center"><small class="text-muted"><%=poem.time%></small></p>
     </div>
   </div>
   <div class="btn-group d-flex justify-content-center">
@@ -25,6 +26,7 @@
   </div>
   <div class="row justify-content-center">
     <div class="col-8">
+      <br/>
       <h4>Comments</h4>
       <form action="/poems/<%=poem.id%>" method="post">
         <input type="text" name="author" placeholder="Your Name">
@@ -41,7 +43,7 @@
           <h5><%=comment.author%></h5>
           <p><%=comment.comment%></p>
           <form action="/poems/<%=poem.id%>/<%=comment.id%>?_method=DELETE" method="post">
-            <input type="submit" name="delete" value="Delete">
+            <button type="button" class="btn btn-primary btn-sm" name="button">Delete</button>
           </form>
           </div>
         <%}%>
