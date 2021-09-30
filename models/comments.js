@@ -5,11 +5,6 @@ const commentSchema = new mongoose.Schema({
   comment: {type: String, required: true},
   time: {type: Date, default: Date.now},
   pageId: {type: String},
-  writeConcern: {
-    w: 'majority',
-    j: true,
-    wtimeout: 1000;
-  }
 })
 
 module.exports = mongoose.model('Comments', commentSchema)
