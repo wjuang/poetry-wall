@@ -2,19 +2,23 @@
 
 <h1>New Poem</h1>
 <form action="/poems" method="post">
+  <div class="form-group">
   <label for="title">Title:</label>
   <br/>
-  <input type="text" name="title">
+  <input class="form-control" type="text" name="title" placeholder="Enter Title">
+  </div>
   <br/>
+  <div class="form-group">
   <label for="author">Author:</label>
+  <input class="form-control" type="text" name="author" placeholder="Enter Author, or leave blank for Anonymous">
+  </div>
   <br/>
-  <input type="text" name="author">
+  <div class="form-group">
+  <label for="content">Write your poem:</label>
+  <textarea  class="form-control" id="content" name="content" rows="10" cols="100" placeholder="Enter Poem"></textarea>
+  </div>
   <br/>
-  <br/>
-  <label for="content"></label>
-  <textarea id="content" name="content" rows="10" cols="100"></textarea>
-  <br/>
-  <input type="submit" name="" value="Submit">
+  <button class="btn btn-primary" type="button" name="button">Submit</button>
 </form>
 
 <%- include('./partials/footer.ejs') -%>

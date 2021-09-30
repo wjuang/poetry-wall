@@ -46,6 +46,11 @@ db.on('disconnected', () => {
 const poetryController = require('./controllers/poetryController.js')
 app.use('/poems', poetryController)
 
+//redirect to main page
+app.get('/', (req, res) => {
+  res.redirect('/poems')
+})
+
 app.listen(PORT, () => {
   console.log('app is running on port ' + PORT)
 })
