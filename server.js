@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 
+//favicon
+const favicon = require('serve-favicon')
+
 //schema import
 const Poem = require('./models/poems.js')
 const Comment = require('./models/comments.js')
@@ -12,6 +15,9 @@ const PORT = process.env.PORT
 
 //set up public folder (css)
 app.use(express.static('public'))
+
+//set up favicon
+app.use(favicon(__dirname + '/public/favicon.ico'))
 
 //set up body parser
 app.use(express.urlencoded({extended: false}))

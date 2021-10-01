@@ -34,3 +34,7 @@ body {
 .titles {
   margin-top: 15px;
 }
+#top {
+  width: 40px;
+  padding: 5px;
+}
