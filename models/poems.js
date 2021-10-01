@@ -5,6 +5,7 @@ const poemSchema = new mongoose.Schema({
   author: {type: String, default: 'Anonymous'},
   content: {type: String, required: true},
   time: {type: Date, default: Date.now},
+  edit: {type: String}
 })
 
 module.exports = mongoose.model('Poems', poemSchema)

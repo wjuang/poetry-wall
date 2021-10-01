@@ -106,6 +106,7 @@ router.put('/:id', (req, res) => {
   if (req.body.author.length < 1){
     req.body.author = "Anonymous"
   }
+  req.body.edit = "(edited)"
   Poem.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, foundPoem) => {
     if (err) {
       console.log(err)
