@@ -56,3 +56,8 @@ body {
 .w-100 {
   margin-bottom: 2px;
 }
+
+.submittable {
+  margin-left: 10px;
+  margin-right: 10px;
+}

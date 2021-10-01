@@ -1,7 +1,7 @@
 <%- include('./partials/header.ejs') -%>
 
 <h1>New Poem</h1>
-<form action="/poems" method="post">
+<form class="submittable" action="/poems" method="post">
   <div class="form-group">
   <label for="title">Title:</label>
   <br/>
@@ -18,7 +18,7 @@
   <textarea  class="form-control" id="content" name="content" rows="10" cols="100" placeholder="Enter Poem"></textarea>
   </div>
   <br/>
-  <button class="btn btn-primary" type="button" name="button">Submit</button>
+  <input type="submit" value="Submit" class="btn btn-primary">
 </form>
 
 <%- include('./partials/footer.ejs') -%>
