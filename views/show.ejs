@@ -3,9 +3,9 @@
   <div class="row justify-content-center" >
     <div class="col-sm-4">
       <br/>
-      <h1 class="text-center"><%=poem.title%></h1>
-      <h5 class="text-center"><%=poem.author%></h5>
-      <p class="text-center" id="content"><%=poem.content%></p>
+      <h1 class="text-center wordbreak"><%=poem.title%></h1>
+      <h5 class="text-center wordbreak"><%=poem.author%></h5>
+      <p class="text-center wordbreak" id="content"><%=poem.content%></p>
       <p class="text-center"><small class="text-muted"><%=poem.time%><%=poem.edit%></small></p>
     </div>
   </div>
@@ -32,6 +32,7 @@
         <input type="text" name="author" placeholder="Your Name">
         <br/>
         <textarea id="comment" name="comment" rows="2" cols="100" placeholder="Your comment"></textarea>
+        <br/>
         <button class="btn btn-dark">Post</button>
       </form>
     </div>
@@ -40,8 +41,8 @@
       <%for (comment of comments) { %>
         <%if (comment.pageId == poem.id) {%>
           <div class="col-sm-8">
-          <h5 class="commentsSection"><%=comment.author%></h5>
-          <p class="commentsSection"><%=comment.comment%></p>
+          <h5 class="wordbreak"><%=comment.author%></h5>
+          <p class="wordbreak"><%=comment.comment%></p>
           <form action="/poems/<%=poem.id%>/<%=comment.id%>?_method=DELETE" method="post">
             <input type="submit" class="btn btn-primary btn-sm" value="Delete">
           </form>
