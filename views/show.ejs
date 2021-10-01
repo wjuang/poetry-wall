@@ -24,14 +24,14 @@
       <button class="btn btn-primary" onclick="responsiveVoice.speak(document.getElementById('content').textContent, 'US English Female')">Read</button>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center comment-box">
     <div class="col-8">
       <br/>
       <h4>Comments</h4>
       <form action="/poems/<%=poem.id%>" method="post">
         <input type="text" name="author" placeholder="Your Name">
         <br/>
-        <textarea id="comment" name="comment" rows="2" cols="70" placeholder="Your comment"></textarea>
+        <textarea id="comment" name="comment" rows="2" cols="100" placeholder="Your comment"></textarea>
         <button class="btn btn-dark">Post</button>
       </form>
     </div>
@@ -40,8 +40,8 @@
       <%for (comment of comments) { %>
         <%if (comment.pageId == poem.id) {%>
           <div class="col-sm-8">
-          <h5><%=comment.author%></h5>
-          <p><%=comment.comment%></p>
+          <h5 class="commentsSection"><%=comment.author%></h5>
+          <p class="commentsSection"><%=comment.comment%></p>
           <form action="/poems/<%=poem.id%>/<%=comment.id%>?_method=DELETE" method="post">
             <input type="submit" class="btn btn-primary btn-sm" value="Delete">
           </form>
