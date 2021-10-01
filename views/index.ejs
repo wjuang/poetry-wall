@@ -10,13 +10,14 @@
 <div class="container">
   <div class="row justify-content-around">
     <%for (let i = poems.length-1; i >= 0; i--){%>
-      <div class="col-sm-4">
+      <div class="col-sm-4 card d-flex flex-column">
         <h3 class="titles wordbreak"><%=poems[i].title%></h3>
         <p class="authors wordbreak">By <%=poems[i].author%></p>
         <p class="contents wordbreak"><%=poems[i].content%></p>
         <p><small class="text-muted"><%=poems[i].time%><%=poems[i].edit%></small></p>
+        <br/>
         <form action="/poems/<%=poems[i].id%>" method="get">
-          <button type="submit" class="btn btn-primary w-100">View</button>
+          <button type="submit" class="btn btn-primary w-100 mt-auto">View</button>
         </form>
       </div>
     <%}%>
