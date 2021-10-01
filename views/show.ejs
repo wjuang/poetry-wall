@@ -29,9 +29,9 @@
       <br/>
       <h4>Comments</h4>
       <form action="/poems/<%=poem.id%>" method="post">
-        <input type="text" name="author" placeholder="Your Name">
+        <input id="commentName" type="text" name="author" placeholder="Your Name">
         <br/>
-        <textarea id="comment" name="comment" rows="2" cols="100" placeholder="Your comment"></textarea>
+        <textarea id="comment" name="comment" placeholder="Your comment"></textarea>
         <br/>
         <button class="btn btn-dark">Post</button>
       </form>

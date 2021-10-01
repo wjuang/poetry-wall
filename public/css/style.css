@@ -76,3 +76,11 @@ body {
 .btn-dark {
   margin-bottom: 10px;
 }
+
+#comment {
+  width: 100%
+}
+
+#commentName {
+  width: 40%
+}
