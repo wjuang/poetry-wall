@@ -38,3 +38,21 @@ body {
   width: 40px;
   padding: 5px;
 }
+
+.lead {
+  text-align: center;
+}
+
+#frontpage {
+  margin: 0 auto;
+  display: block;
+}
+
+#footer {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.w-100 {
+  margin-bottom: 2px;
+}

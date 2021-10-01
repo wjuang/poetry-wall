@@ -1,6 +1,11 @@
 <%- include('./partials/header.ejs') -%>
 
-<h1>Index page</h1>
+<div class="jumbotron">
+  <h1 class="display-1">Poetry Wall</h1>
+  <p class="lead">A user-submitted collection of poetry.</p>
+  <img id="frontpage" src="/icon.png">
+  <hr class="my-4">
+</div>
 
 <div class="container">
   <div class="row justify-content-around">
@@ -27,7 +32,7 @@
     } else {
       longer = false
     }
-    content.innerHTML = content.innerHTML.substring(0, 200);
+    content.innerHTML = content.innerHTML.substring(0, 170);
     if (longer === true){
       content.innerHTML = content.innerHTML + "..."
     }
