@@ -1,12 +1,11 @@
 # poetry-wall
 Project Description
-Include:
 
 General App Idea/Purpose
 
 A user-submitted database of poems. Uses Express.js and Mongoose. Styled with Bootstrap and uses ResponsiveVoice. Hosted on Heroku at https://poetry-wall.herokuapp.com/
 
-Poem:
+Routes:
 
 Title: string
 Author: string
@@ -30,8 +29,6 @@ put:
 -Index/:id
 
 Wireframes
-Wireframes with basic page layouts
-
 ![image](https://user-images.githubusercontent.com/79492367/135719459-498c9a0a-b579-4192-b30f-ff9c2511e5c4.png)
 
 User Stories
