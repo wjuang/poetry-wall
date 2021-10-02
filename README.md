@@ -10,17 +10,18 @@ Routes:
 Title: string
 Author: string
 Content: string
-Timestamp (preset data type i think, but number?)
-A list of routes (e.g. POST /pins/ allows users to post a picture of a pin)
+Timestamp: date
 
+A list of routes (e.g. POST /pins/ allows users to post a picture of a pin)
 get:
 -Index
--Show (index/:id)
+-Show (index/:id) + comments
 -New
 -Edit
 
 delete:
 -Index/:id
+-Index/:id/:commentId
 
 post:
 -Index
@@ -48,6 +49,5 @@ Poems are properly stored and ordered chronologically in the database/on the ind
 Stretch Goals
 Add comments section to each show page
 Add logins and display usernames as authors of both posts and comments
-!!!>GOING TO TRY THESE FOR SURE<!!!
-Add text to speech function to read poem out loud?
+Add text to speech function to read poem out loud
 Add audio recording in browser and playback so people can hear themselves and others reading back their poetry
