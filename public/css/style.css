@@ -89,5 +89,5 @@ body {
   position: fixed;
   bottom: 5%;
   right: 5%;
-  box-shadow: 2px 2px 3px;
+  box-shadow: 2px 2px 3px #999;
 }
